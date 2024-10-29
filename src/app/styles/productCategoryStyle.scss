@@ -1,0 +1,42 @@
+@use 'variables';
+
+.product-category{
+    background-color: variables.$dark_grey;
+    border-radius: 8px;
+    width:100%;
+    text-align:center;
+    padding-block-start:5.5rem;
+    padding-block-end:1.37rem;
+    position:relative;
+
+    .product-category-picture{
+        position:absolute;
+        inset:0;
+        margin-inline:auto;
+        height: 135px;
+        width: auto;
+        translate: 0% -38%;
+    }
+
+    .product-category-title{
+        margin-block-end: 1.06rem;
+    }
+
+    .product-category-button{
+        background-color:transparent;
+        border:none;
+        color: variables.$black;
+        opacity: 50%;
+        font-size: 0.81rem;
+        font-weight: variables.$bold;
+        letter-spacing: 1px;
+        position: relative;
+        text-transform: uppercase;
+        margin-inline-end:.83rem;
+
+        &:hover{
+            color: variables.$orange;
+            opacity:100%;
+        }
+    }
+}

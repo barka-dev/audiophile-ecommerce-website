@@ -1,0 +1,81 @@
+@use './styles/variables';
+@use "./styles/navigationStyle.scss";
+@use "./styles/homeStyle.scss";
+@use "./styles/productCategoryStyle.scss";
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*, *::before, *::after{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Manrope", sans-serif;
+}
+
+body{
+    background-color: variables.$light_grey;
+    font-size: 16px;
+}
+
+h1{
+    font-size: 2.25rem;
+    letter-spacing: 1.29px;
+    color: variables.$white;
+    font-weight: variables.$bold;
+    line-height: 40px;
+    text-transform: uppercase;
+}
+
+h4{
+    font-size:1.75rem;
+    font-weight: variables.$bold;
+    color: variables.$black;
+    letter-spacing: 2px;
+
+}
+
+h6{
+    font-size: 0.93rem;
+    text-transform: uppercase;
+    font-weight: variables.$bold;
+    letter-spacing: 1.07px;
+}
+
+button{
+    cursor: pointer;
+}
+
+.button{
+    border: none;
+    letter-spacing: 1px;
+    font-size: 0.81rem;
+    font-weight: variables.$bold;
+    padding-block: 0.93rem;
+    text-transform: uppercase;
+    width: 10rem;
+    
+}
+
+.orange-button{
+    color: variables.$white;
+    background-color: variables.$orange;
+
+    &:hover{
+        background-color: variables.$faded_orange;
+    }
+}
+
+.transparent-button{
+    border: 1px solid variables.$black;
+    margin-block-start:2rem;
+    background-color: transparent;
+
+    &:hover{
+        background-color: variables.$black;
+        color: variables.$white;
+    }
+}
+
+.regular-button-size{
+    width: 10rem;
+}
