@@ -1,0 +1,62 @@
+@use 'variables';
+
+.footer{
+    margin-block-start:3.75rem;
+    padding-inline:1.5rem;
+    padding-block-start:3.25rem;
+    padding-block-end:2.37rem;
+    background-color: variables.$very_dark_grey;
+    color: variables.$white;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:3rem;
+    position: relative;
+    text-align:center;
+
+    &::before{
+        content:'';
+        width: 101px;
+        height: 4px;
+        background-color: variables.$orange;
+        position: absolute;
+        inset:0;
+        margin-inline:auto;
+    }
+
+    .footer-subgroup-one{
+        grid-column: span 2;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        gap:3rem;
+
+    }
+
+    .footer-subgroup-two{
+        grid-column: span 2;
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        gap:3rem;
+
+        .footer-text{
+            grid-column: span 2;
+            opacity:50%;
+        }
+
+        .footer-copyright{
+            grid-column: span 2;
+            font-size: 0.93rem;
+            line-height:25px;
+            font-weight: variables.$bold;
+            opacity:50%;
+        }
+
+        .footer-nested-subgroup{
+            grid-column: span 2;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            gap:1rem;
+        }
+    }
+}

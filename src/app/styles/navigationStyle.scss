@@ -10,6 +10,7 @@
     justify-content: space-between;
     align-items: center;
     background-color: variables.$very_dark_grey;
+    color: variables.$white;
     z-index: 9999;
 
     &::after{
