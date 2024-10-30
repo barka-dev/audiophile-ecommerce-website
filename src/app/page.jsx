@@ -14,7 +14,24 @@ export default function Home() {
             <button className="header-button button orange-button">See Product</button>
           </Link>
         </div>
-        <Image className="header-picture" src="/images/home/mobile/image-header.jpg" alt="header image" width={577} height={722}/>
+        <picture>
+        {/* <source
+          media="(min-width: 1024px)"
+          srcSet={'/images/home/desktop/image-header.jpg'}
+        /> */}
+        <source
+          media="(min-width: 768px)"
+          srcSet={'/images/home/tablet/image-header.jpg'}
+        />
+        <Image
+          className="header-picture"
+          src="/images/home/mobile/image-header.jpg"
+          alt="header image"
+          width={577}
+          height={722}
+          priority
+        />
+      </picture>
       </section>
 
       <section className="categories-section">
@@ -43,7 +60,13 @@ export default function Home() {
         </article>
 
         <article className="product-type-three">
-          <Image  className="product-type-three-picture" src="/images/home/mobile/image-earphones-yx1.jpg" alt="earphones YX1" width={327} height={200}/>
+          <picture>
+            <source
+              media="(min-width: 768px)"
+              srcSet={'/images/home/tablet/image-earphones-yx1.jpg'}
+            />
+            <Image  className="product-type-three-picture" src="/images/home/mobile/image-earphones-yx1.jpg" alt="earphones YX1" width={327} height={200}/>
+          </picture>
           <div className="product-type-three-subgroup">
             <h4>YX1 EARPHONES</h4>
             <Link href="">
@@ -56,12 +79,18 @@ export default function Home() {
       <section className="about-section">
         <div className="about-subgroup">
           <h2 className="about-title">Bringing you the <span>best</span> audio gear</h2>
-          <p className="about-text">Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. 
+          <p className="text about-text">Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. 
             We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. 
             Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.
           </p>
         </div>
-        <Image  className="about-picture" src="/images/shared/mobile/image-best-gear.jpg" alt="best gear image" width={327} height={3300}/>
+        <picture>
+        <source
+          media="(min-width: 768px)"
+          srcSet={'/images/shared/tablet/image-best-gear.jpg'}
+        />
+          <Image  className="about-picture" src="/images/shared/mobile/image-best-gear.jpg" alt="best gear image" width={327} height={3300}/>
+        </picture>
       </section>
     </main>
   );

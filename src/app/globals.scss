@@ -21,6 +21,7 @@ body{
     font-size: 16px;
 }
 
+
 h1{
     font-size: 2.25rem;
     letter-spacing: 1.29px;
@@ -96,4 +97,85 @@ button{
 
 .regular-button-size{
     width: 10rem;
+}
+
+@media screen and (min-width:768px) {
+    h1{
+        font-size: 3.5rem;
+        letter-spacing: 2px;
+        // color: variables.$white;
+        // font-weight: variables.$bold;
+        line-height: 58px;
+        // text-transform: uppercase;
+    }
+    
+    h2{
+        font-size:2.5rem;
+        letter-spacing: 1.43px;
+        line-height:44px;
+        // font-weight: variables.$bold;
+        // color: variables.$black;
+        // text-transform: uppercase;
+    }
+    
+    // h4{
+    //     font-size:1.75rem;
+    //     font-weight: variables.$bold;
+    //     color: variables.$black;
+    //     letter-spacing: 2px;
+    
+    // }
+    
+    // h6{
+    //     font-size: 0.93rem;
+    //     text-transform: uppercase;
+    //     font-weight: variables.$bold;
+    //     letter-spacing: 1.07px;
+    // }
+    
+    // .text{
+    //     font-size: 0.93rem;
+    //     font-weight: variables.$medium;
+    //     line-height: 25px;
+        
+    // }
+    
+    // button{
+    //     cursor: pointer;
+    // }
+    
+    // .button{
+    //     border: none;
+    //     letter-spacing: 1px;
+    //     font-size: 0.81rem;
+    //     font-weight: variables.$bold;
+    //     padding-block: 0.93rem;
+    //     text-transform: uppercase;
+    //     width: 10rem;
+        
+    // }
+    
+    // .orange-button{
+    //     color: variables.$white;
+    //     background-color: variables.$orange;
+    
+    //     &:hover{
+    //         background-color: variables.$faded_orange;
+    //     }
+    // }
+    
+    // .transparent-button{
+    //     // border: 1px solid variables.$black;
+    //     // margin-block-start:2rem;
+    //     // background-color: transparent;
+    
+    //     &:hover{
+    //         background-color: variables.$black;
+    //         color: variables.$white;
+    //     }
+    // }
+    
+    // .regular-button-size{
+    //     width: 10rem;
+    // }
 }

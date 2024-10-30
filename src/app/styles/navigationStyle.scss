@@ -20,7 +20,7 @@
         position: absolute;
         inset-block-end: 0;
         inset-inline-start: 0;
-        border-bottom: 1px solid variables.$white;
+        background-color: variables.$white;
         opacity: 10.4%;
     }
 
@@ -29,4 +29,52 @@
         border: none;
     }
 
+    .tabs{
+        display:none;
+    }
+
+}
+
+@media screen and (min-width:768px) {
+    .nav-container{
+        padding-inline: 2.5rem;
+        gap:2.62rem;
+
+        &::after{
+            width: calc(100% - 2.5rem*2);
+            inset-inline: 0;
+            margin-inline:auto;
+        }
+
+        .cart-button{
+            margin-inline-start:auto;
+        }
+    
+    }
+}
+
+@media screen and (min-width:1440px) {
+    .nav-container{
+        padding-inline: 10.31rem;
+        gap:2.62rem;
+
+        &::after{
+            width: calc(100% - 10.31rem*2);
+            inset-inline: 0;
+            margin-inline:auto;
+        }
+    
+        .burger-button{
+            display:none;
+        }
+
+        .tabs{
+            display:block;
+        }
+
+        .cart-button{
+            margin-inline-start:0;
+        }
+    
+    }
 }

@@ -2,6 +2,7 @@
 
 .hero-section{
     background-color: variables.$black;
+    overflow: hidden;
     display:grid;
     align-items: flex-end;
     position: relative;
@@ -129,15 +130,13 @@
     .product-type-three{
         grid-column: span 2;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1.5rem;
-
-        .product-type-three-picture, .product-type-three-subgroup{
-            grid-column: span 2;
-        }
+        grid-template-columns: 1fr;
+        gap:1.5rem;
 
         .product-type-three-picture{
             border-radius: 8px;
+            width:100%;
+            height:100%;
         }
 
         .product-type-three-subgroup{
@@ -153,11 +152,11 @@
     padding-inline:1.5rem;
     padding-block:3.75rem;
     display:grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap:2.5rem;
 
     .about-subgroup{
-        grid-column: span 2;
+        // grid-column: span 2;
         grid-row: 2;
         display: flex;
         flex-direction: column;
@@ -173,9 +172,6 @@
         }
 
         .about-text{
-            font-size:0.93rem;
-            line-height:25px;
-            font-weight: variables.$medium;
             color: variables.$black;
             opacity: 50%;
 
@@ -183,10 +179,200 @@
     }
     
     .about-picture{
-        grid-column: span 2;
+        // grid-column: span 2;
         grid-row: 1;
         width: 100%;
         height: auto;
         border-radius: 8px;
+    }
+}
+
+@media screen and (min-width:768px) {
+    .hero-section{
+        // background-color: variables.$black;
+        // display:grid;
+        // align-items: flex-end;
+        // position: relative;
+        // isolation: isolate;
+    
+        // &>*{
+        //     grid-area: 1 / 1;
+        // }
+    
+        .header-content{
+            // text-align: center;
+            padding-inline: 12.18rem;
+            padding-block-start: 7.87rem;
+            padding-block-end: 10.43rem;
+            // position: relative;
+            // border:1px solid red;
+    
+            // .header-subtitle{
+            //     font-size: 0.87rem;
+            //     letter-spacing: 10px;
+            //     color: variables.$white;
+            //     opacity:49.64%;
+            //     font-weight: variables.$regular;
+            // }
+    
+            .header-title{
+                margin-block-start: 1.5rem;
+            }
+    
+            // .header-text{
+            //     color: variables.$white;
+            //     margin-block-start: 1.5rem;
+            //     opacity: 75%;
+            //     border:1px solid red;
+            // }
+    
+            .header-button{
+                margin-block-start:2.5rem;
+            }
+        }
+    
+        // .header-picture{
+        //     width:100%;
+        //     height: auto;
+        //     object-fit: cover;
+        //     opacity: 50.21%;
+        //     z-index: -1;
+        //     position: absolute;
+        //     inset-block: 0;
+        //     margin-block:auto;
+        // }
+    
+    }
+    
+    .categories-section{
+        // display: flex;
+        flex-direction: row;
+        // align-items: center;
+        // justify-content: center;
+        gap:0.625rem;
+        padding-inline:2.5rem;
+        padding-block-start:9.25rem;
+        padding-block-end:3rem;
+    }
+    
+    .products-section{
+        padding-block:3rem;
+        padding-inline:2.5rem;
+        // display:grid;
+        // grid-template-columns: 1fr 1fr;
+        gap:2rem;
+        
+        .product-type-one{
+            // background-color: variables.$orange;
+            // background-image: url("/images/home/desktop/pattern-circles.svg");
+            // background-repeat:no-repeat;
+            background-position: center 133%;
+            background-size:140% auto;
+            // border-radius:8px;
+            // grid-column: span 2;
+            padding-block-start: 3.25rem;
+            padding-block-end: 4rem;
+            padding-inline:11.5rem;
+            // display:grid;
+            // grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+    
+            // .product-type-one-picture, .product-type-one-subgroup{
+            //     grid-column: span 2;
+            // }
+            // .product-type-one-picture{
+            //     margin-inline:auto;
+            // }
+    
+            .product-type-one-subgroup{
+                // display: flex;
+                // flex-direction: column;
+                // gap: 1.5rem;
+                // text-align:center;
+                // align-items: center;
+    
+                // .product-type-one-description{
+                //     color: variables.$white;
+                //     opacity: 75%;
+                // }
+    
+                .product-type-one-button{
+                    margin-block-start:2.5rem;
+                    // color: variables.$white;
+                    // background-color: variables.$black;
+                }
+            }
+        }
+    
+        .product-type-two{
+            // background-color: variables.$dark_grey;
+            background-image: url("/images/home/tablet/image-speaker-zx7.jpg");
+            // background-repeat:no-repeat;
+            // background-position: top right;
+            // background-size:100% auto;
+            // border-radius: 8px;
+            // padding-block: 6.31rem;
+            padding-inline-start: 3.87rem;
+            // grid-column: span 2;
+            
+    
+        }
+    
+        .product-type-three{
+            // grid-column: span 2;
+            // display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.68rem;
+    
+            // .product-type-three-picture{
+            //     border-radius: 8px;
+            // }
+    
+            .product-type-three-subgroup{
+                // background-color: variables.$dark_grey;
+                // border-radius:8px;
+                padding-block: 6.31rem;
+                padding-inline-start:2.5rem;
+            }
+        }
+    }
+    
+    .about-section{
+        padding-inline:2.5rem;
+        padding-block:3rem;
+        // display:grid;
+        // grid-template-columns: 1fr 1fr;
+        gap:3.93rem;
+    
+        .about-subgroup{
+            padding-inline: 3.62rem;
+            // grid-column: span 2;
+            // grid-row: 2;
+            // display: flex;
+            // flex-direction: column;
+            // align-items: center;
+            // gap:2rem;
+            // text-align: center;
+    
+    
+            // .about-title{
+            //     span{
+            //         color: variables.$orange;
+            //     }
+            // }
+    
+            // .about-text{
+            //     color: variables.$black;
+            //     opacity: 50%;
+            // }
+        }
+        
+        // .about-picture{
+            // grid-column: span 2;
+            // grid-row: 1;
+            // width: 100%;
+            // height: auto;
+            // border-radius: 8px;
+        // }
     }
 }

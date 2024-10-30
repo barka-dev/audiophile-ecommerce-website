@@ -3,14 +3,26 @@ import Image from "next/image";
 import Link from "next/link";
 import NavigationTabs from "./navigationTabs";
 import NavigationModal from "./navigationModal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Navigation(){
     const [showNavModal, setShowNavModal] = useState(false);
+    const [windowWidth, setWindowWidth] = useState('');
+
+    useEffect(()=>{
+        setWindowWidth(window.innerWidth);
+        window.addEventListener('resize',()=>{
+            setWindowWidth(window.innerWidth);
+            if(window.innerWidth >= 1440){
+                setShowNavModal(false);
+            }
+        })
+    },[])
 
     const showMobileNav = ()=>{
         setShowNavModal(!showNavModal);
     }
+
     return(
         <>
             <nav className="nav-container">
@@ -22,14 +34,16 @@ export default function Navigation(){
                     <Image src="/images/shared/desktop/logo.svg" alt="logo" width={143} height={25}/>
                 </Link>
 
-                {/* <NavigationTabs/> */}
+                <div className="tabs">
+                    <NavigationTabs/>
+                </div>
                 
                 <button className="cart-button">
                     <Image src="/images/shared/desktop/icon-cart.svg" alt="cart icon" width={23} height={20}/>
                 </button>
 
             </nav>
-            {showNavModal && <NavigationModal/>}
+            {(showNavModal && windowWidth < 1440) && <NavigationModal/>}
         </>
     )
 }
