@@ -13,7 +13,7 @@ export default function Navigation(){
         setWindowWidth(window.innerWidth);
         window.addEventListener('resize',()=>{
             setWindowWidth(window.innerWidth);
-            if(window.innerWidth >= 1440){
+            if(window.innerWidth >= 1024){
                 setShowNavModal(false);
             }
         })
@@ -43,7 +43,7 @@ export default function Navigation(){
                 </button>
 
             </nav>
-            {(showNavModal && windowWidth < 1440) && <NavigationModal/>}
+            {(showNavModal && windowWidth < 1024) && <NavigationModal/>}
         </>
     )
 }

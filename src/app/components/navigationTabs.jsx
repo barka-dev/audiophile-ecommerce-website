@@ -4,7 +4,7 @@ export default function NavigationTabs(){
     return(
         <ul className="navigation-tabs">
             <li>
-                <Link href="">Home</Link>
+                <Link href="">HOME</Link>
             </li>
             <li>
                 <Link href="">HEADPHONES</Link>
