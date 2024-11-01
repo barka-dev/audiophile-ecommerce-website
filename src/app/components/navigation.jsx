@@ -26,21 +26,23 @@ export default function Navigation(){
     return(
         <>
             <nav className="nav-container">
-                <button className="burger-button" onClick={showMobileNav}>
-                    <Image src="/images/shared/tablet/icon-hamburger.svg" alt="hamburger icon" width={16} height={15}/>
-                </button>
+                <div className="nav-sub-container">
+                    <button className="burger-button" onClick={showMobileNav}>
+                        <Image src="/images/shared/tablet/icon-hamburger.svg" alt="hamburger icon" width={16} height={15}/>
+                    </button>
 
-                <Link href="/">
-                    <Image src="/images/shared/desktop/logo.svg" alt="logo" width={143} height={25}/>
-                </Link>
+                    <Link href="/">
+                        <Image src="/images/shared/desktop/logo.svg" alt="logo" width={143} height={25}/>
+                    </Link>
 
-                <div className="tabs">
-                    <NavigationTabs/>
+                    <div className="tabs">
+                        <NavigationTabs/>
+                    </div>
+                    
+                    <button className="cart-button">
+                        <Image src="/images/shared/desktop/icon-cart.svg" alt="cart icon" width={23} height={20}/>
+                    </button>
                 </div>
-                
-                <button className="cart-button">
-                    <Image src="/images/shared/desktop/icon-cart.svg" alt="cart icon" width={23} height={20}/>
-                </button>
 
             </nav>
             {(showNavModal && windowWidth < 1024) && <NavigationModal/>}

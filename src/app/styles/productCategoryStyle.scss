@@ -8,6 +8,11 @@
     padding-block-start:5.5rem;
     padding-block-end:1.37rem;
     position:relative;
+    cursor:pointer;
+    &:hover .product-category-button{
+        color: variables.$orange;
+        opacity:100%;
+    }
 
     .product-category-picture{
         position:absolute;
@@ -34,10 +39,7 @@
         text-transform: uppercase;
         margin-inline-end:.83rem;
 
-        &:hover{
-            color: variables.$orange;
-            opacity:100%;
-        }
+        
     }
 }
 

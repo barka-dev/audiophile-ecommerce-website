@@ -1,23 +1,22 @@
 @use 'variables';
 
+.home-header{
+    background-color: variables.$medium_dark_grey;
+}
+
 .hero-section{
-    background-color: variables.$black;
-    overflow: hidden;
     display:grid;
-    align-items: flex-end;
     position: relative;
     isolation: isolate;
-
-    &>*{
-        grid-area: 1 / 1;
-    }
+    max-width: 1110px;
+    margin-inline:auto;
 
     .header-content{
         text-align: center;
-        padding-inline: 1.5rem;
         padding-block-start: 6.75rem;
         padding-block-end: 7rem;
-        position: relative;
+        width: 70%;
+        margin-inline:auto;
 
         .header-subtitle{
             font-size: 0.87rem;
@@ -45,7 +44,6 @@
     .header-picture{
         width:100%;
         height: auto;
-        object-fit: cover;
         opacity: 50.21%;
         z-index: -1;
         position: absolute;
@@ -110,6 +108,10 @@
             .product-type-one-button{
                 color: variables.$white;
                 background-color: variables.$black;
+
+                &:hover{
+                    background-color: #4c4c4c;
+                }
             }
         }
     }
@@ -195,58 +197,23 @@
 
 @media screen and (min-width:768px) {
     .hero-section{
-        // background-color: variables.$black;
-        // display:grid;
-        // align-items: flex-end;
-        // position: relative;
-        // isolation: isolate;
-    
-        // &>*{
-        //     grid-area: 1 / 1;
-        // }
-    
-        .header-content{
-            // text-align: center;
-            padding-inline: 12.18rem;
+        .header-content{     
             padding-block-start: 7.87rem;
             padding-block-end: 10.43rem;
-            // position: relative;
-            // border:1px solid red;
-    
-            // .header-subtitle{
-            //     font-size: 0.87rem;
-            //     letter-spacing: 10px;
-            //     color: variables.$white;
-            //     opacity:49.64%;
-            //     font-weight: variables.$regular;
-            // }
     
             .header-title{
                 margin-block-start: 1.5rem;
             }
     
-            // .header-text{
-            //     color: variables.$white;
-            //     margin-block-start: 1.5rem;
-            //     opacity: 75%;
-            //     border:1px solid red;
-            // }
+            .header-text{
+                width: 65%;
+                margin-inline:auto;
+            }
     
             .header-button{
                 margin-block-start:2.5rem;
             }
         }
-    
-        // .header-picture{
-        //     width:100%;
-        //     height: auto;
-        //     object-fit: cover;
-        //     opacity: 50.21%;
-        //     z-index: -1;
-        //     position: absolute;
-        //     inset-block: 0;
-        //     margin-block:auto;
-        // }
     
     }
     
@@ -309,59 +276,39 @@
 }
 
 @media screen and (min-width:1024px) {
-    .hero-section{
-        // background-color: variables.$black;
-        // display:grid;
-        // align-items: flex-end;
-        // position: relative;
-        // isolation: isolate;
+    .home-header{
+        overflow: hidden;
+    }
     
-        // &>*{
-        //     grid-area: 1 / 1;
-        // }
+    .hero-section{
+        width:88%;
+        grid-template-columns: 1fr 1fr;
     
         .header-content{
-            // text-align: center;
-            padding-inline: 12.18rem;
-            padding-block-start: 7.87rem;
-            padding-block-end: 10.43rem;
-            // position: relative;
-            // border:1px solid red;
+            grid-column: 1 / 1;
+            grid-row: 1;
+            text-align: unset;
+            padding-block-start: 8rem;
+            padding-block-end: 9.87rem;
+            width: 100%;
+            margin-inline:unset;
     
-            // .header-subtitle{
-            //     font-size: 0.87rem;
-            //     letter-spacing: 10px;
-            //     color: variables.$white;
-            //     opacity:49.64%;
-            //     font-weight: variables.$regular;
-            // }
-    
-            .header-title{
-                margin-block-start: 1.5rem;
-            }
-    
-            // .header-text{
-            //     color: variables.$white;
-            //     margin-block-start: 1.5rem;
-            //     opacity: 75%;
-            //     border:1px solid red;
-            // }
-    
-            .header-button{
-                margin-block-start:2.5rem;
+            .header-text{
+                margin-inline:unset;
             }
         }
     
-        // .header-picture{
-        //     width:100%;
-        //     height: auto;
-        //     object-fit: cover;
-        //     opacity: 50.21%;
-        //     z-index: -1;
-        //     position: absolute;
-        //     inset-block: 0;
-        //     margin-block:auto;
-        // }
+        .header-picture{
+            grid-column: span 2;
+            grid-row: 1;
+            width:130%;
+            height: auto;
+            object-fit: cover;
+            opacity: 100%;
+            inset-block-end: 0;
+            inset-inline-start: -14%;
+
+        }
     
     }
     

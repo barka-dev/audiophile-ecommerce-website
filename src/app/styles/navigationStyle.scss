@@ -1,28 +1,30 @@
 @use 'variables';
 
 .nav-container{
-    width: 100%;
-    padding-inline: 1.5rem;
-    padding-block: 2rem;
+    background-color: variables.$medium_dark_grey;
     position: sticky;
     inset-block-start: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: variables.$very_dark_grey;
-    color: variables.$white;
     z-index: 9999;
 
     &::after{
         content: '';
         width: 100%;
+        max-width: 1110px;
         height: 1px;
         position: absolute;
         inset-block-end: 0;
-        inset-inline-start: 0;
+        inset-inline: 0;
         background-color: variables.$white;
         opacity: 10.4%;
     }
+}
+
+.nav-sub-container{
+    padding-block: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: variables.$white;
 
     .burger-button, .cart-button{
         background-color:transparent;
@@ -37,14 +39,13 @@
 
 @media screen and (min-width:768px) {
     .nav-container{
-        padding-inline: 2.5rem;
-        gap:2.62rem;
-
         &::after{
-            width: calc(100% - 2.5rem*2);
-            inset-inline: 0;
+            width: 88%;
             margin-inline:auto;
         }
+    }
+    .nav-sub-container{
+        gap:2.62rem;
 
         .cart-button{
             margin-inline-start:auto;
@@ -54,15 +55,8 @@
 }
 
 @media screen and (min-width:1024px) {
-    .nav-container{
-        padding-inline: 10.31rem;
+    .nav-sub-container{
         gap:2.62rem;
-
-        &::after{
-            width: calc(100% - 10.31rem*2);
-            inset-inline: 0;
-            margin-inline:auto;
-        }
     
         .burger-button{
             display:none;

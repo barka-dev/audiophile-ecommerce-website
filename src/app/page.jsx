@@ -16,23 +16,16 @@ export default function Home() {
             </Link>
           </div>
           <picture>
-          {/* <source
-            media="(min-width: 1024px)"
-            srcSet={'/images/home/desktop/image-header.jpg'}
-          /> */}
-          <source
-            media="(min-width: 768px)"
-            srcSet={'/images/home/tablet/image-header.jpg'}
-          />
-          <Image
-            className="header-picture"
-            src="/images/home/mobile/image-header.jpg"
-            alt="header image"
-            width={577}
-            height={722}
-            priority
-          />
-        </picture>
+            <source
+              media="(min-width: 1024px)"
+              srcSet={'/images/home/desktop/image-hero.jpg'}
+            />
+            <source
+              media="(min-width: 768px)"
+              srcSet={'/images/home/tablet/image-header.jpg'}
+            />
+            <Image className="header-picture" src="/images/home/mobile/image-header.jpg" alt="header image" width={577} height={722} />
+          </picture>
         </section>
       </header>
       
