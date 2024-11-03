@@ -7,6 +7,10 @@
 @use "./styles/navigationModalStyle.scss";
 @use "./styles/cartModalStyle.scss";
 @use "./styles/selectedProductStyle.scss";
+@use "./styles/aboutSectionStyle.scss";
+@use "./styles/categoriesSectionStyle.scss";
+@use "./styles/headphonesStyle.scss";
+@use "./styles/productStyle.scss";
 
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
@@ -23,6 +27,11 @@ body{
     background-color: variables.$light_grey;
     font-size: 16px;
     position:relative;
+}
+
+header{
+    background-color: variables.$medium_dark_grey;
+    overflow: hidden;
 }
 
 main, .footer-container, .nav-sub-container{
@@ -42,9 +51,7 @@ h1{
 
 h2{
     font-size:1.75rem;
-    letter-spacing: 1px;
     font-weight: variables.$bold;
-    color: variables.$black;
     text-transform: uppercase;
 }
 
@@ -67,6 +74,12 @@ h6{
     font-size: 0.93rem;
     font-weight: variables.$medium;
     line-height: 25px;
+}
+
+.subtitle-text{
+    font-size: 0.87rem;
+    letter-spacing: 10px;
+    font-weight: variables.$regular;
 }
 
 button{

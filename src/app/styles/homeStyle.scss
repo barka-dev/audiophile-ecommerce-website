@@ -1,9 +1,5 @@
 @use 'variables';
 
-.home-header{
-    background-color: variables.$medium_dark_grey;
-}
-
 .hero-section{
     display:grid;
     position: relative;
@@ -19,11 +15,8 @@
         margin-inline:auto;
 
         .header-subtitle{
-            font-size: 0.87rem;
-            letter-spacing: 10px;
             color: variables.$white;
-            opacity:49.64%;
-            font-weight: variables.$regular;
+            opacity:49.64%; 
         }
 
         .header-title{
@@ -50,16 +43,6 @@
         inset-block-end: 0;
     }
 
-}
-
-.categories-section{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap:4.25rem;
-    padding-block-start:5.75rem;
-    padding-block-end:3.75rem;
 }
 
 .products-section{
@@ -160,41 +143,6 @@
     }
 }
 
-.about-section{
-    padding-block:3.75rem;
-    display:grid;
-    gap:2.5rem;
-
-    .about-subgroup{
-        grid-row: 2;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap:2rem;
-        text-align: center;
-
-        .about-title{
-            span{
-                color: variables.$orange;
-            }
-        }
-
-        .about-text{
-            color: variables.$black;
-            opacity: 50%;
-
-        }
-    }
-    
-    .about-picture{
-        grid-row: 1;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 8px;
-    }
-}
-
 @media screen and (min-width:768px) {
     .hero-section{
         .header-content{     
@@ -217,12 +165,7 @@
     
     }
     
-    .categories-section{
-        flex-direction: row;
-        gap:0.625rem;
-        padding-block-start:9.25rem;
-        padding-block-end:3rem;
-    }
+    
     
     .products-section{
         padding-block:3rem;
@@ -264,21 +207,12 @@
             }
         }
     }
-    
-    .about-section{
-        padding-block:3rem;
-        gap:3.93rem;
-    
-        .about-subgroup{
-            padding-inline: 3.62rem;
-        }
-    }
 }
 
 @media screen and (min-width:1024px) {
-    .home-header{
-        overflow: hidden;
-    }
+    // .home-header{
+    //     overflow: hidden;
+    // }
     
     .hero-section{
         width:88%;
@@ -312,11 +246,7 @@
     
     }
     
-    .categories-section{
-        gap:1.87rem;
-        padding-block-start:12.5rem;
-        padding-block-end:5.25rem;
-    }
+    
     
     .products-section{
         padding-block:5.25rem;
@@ -368,19 +298,6 @@
             .product-type-three-subgroup{
                 padding-inline-start:5.93rem;
             }
-        }
-    }
-    
-    .about-section{
-        padding-block:7.25rem;
-        grid-template-columns: 1fr 1fr;
-        gap:7.81rem;
-        align-items: center;
-    
-        .about-subgroup{
-            padding-inline: unset;
-            grid-row: unset;
-            text-align: unset;
         }
     }
 }

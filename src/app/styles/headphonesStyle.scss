@@ -1,0 +1,16 @@
+@use "variables";
+
+.cat-header-title{
+    letter-spacing: 2px;
+    color: variables.$white;
+    padding-block:2rem;
+    margin-inline:auto;
+    width:fit-content;
+}
+
+.headphones-products-section{
+    padding-block:4rem;
+    display: grid;
+    gap:7.5rem;
+}
+
