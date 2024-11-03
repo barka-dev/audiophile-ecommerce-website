@@ -4,9 +4,11 @@ import Link from "next/link";
 import NavigationTabs from "./navigationTabs";
 import NavigationModal from "./navigationModal";
 import { useEffect, useState } from "react";
+import CartModal from "./cartModal";
 
 export default function Navigation(){
     const [showNavModal, setShowNavModal] = useState(false);
+    const [showCartModal, setShowCartModal] = useState(false);
     const [windowWidth, setWindowWidth] = useState('');
 
     useEffect(()=>{
@@ -39,13 +41,16 @@ export default function Navigation(){
                         <NavigationTabs/>
                     </div>
                     
-                    <button className="cart-button">
+                    <button className="cart-button" onClick={()=>{setShowCartModal(!showCartModal)}}>
                         <Image src="/images/shared/desktop/icon-cart.svg" alt="cart icon" width={23} height={20}/>
                     </button>
+
+                    {showCartModal && <CartModal/>}
                 </div>
 
             </nav>
             {(showNavModal && windowWidth < 1024) && <NavigationModal/>}
+            
         </>
     )
 }

@@ -1,0 +1,70 @@
+@use 'variables';
+
+.selected-item-container{
+    display:flex;
+    gap:1rem;
+    align-items: center;
+
+    .selected-item-picture{
+        border-radius: 8px;
+    }
+
+    .selected-item-subgroup{
+
+        .selected-item-name{
+            font-size:0.93rem;
+            line-height:25px;
+            font-weight: variables.$bold;
+        }
+
+        .selected-item-price{
+            font-size:0.875rem;
+            opacity:50%;
+            font-weight: variables.$bold;
+            line-height:25px;
+        }
+    }
+    .quantity-wrapper{
+        background-color: variables.$dark_grey;
+        position: relative;
+        margin-inline-start:auto;
+        width:96px;
+        height:32px;
+        display: flex;
+
+        .quantity-button{
+            font-size:0.81rem;
+            letter-spacing: 1px;
+            font-weight: variables.$bold;
+            opacity: 25%;
+            padding-inline: 0.75rem;
+            border:none;
+            background-color:transparent;
+
+            &:hover, &:active{
+                color: variables.$orange;
+                opacity:100%;
+            }
+
+        }
+
+        .selected-item-quantity{
+            -webkit-appearance: none;
+            -moz-appearance: textfield;
+            appearance: none;
+            text-align:center;
+            border:none;
+            width:33%;
+            background-color: transparent;
+            font-size:0.81rem;
+            font-weight: variables.$bold;
+            letter-spacing: 1px;
+            height: 100%;
+            
+            &::-webkit-inner-spin-button,
+            &::-webkit-outer-spin-button {
+              -webkit-appearance: none;
+            } 
+        }
+    }
+}

@@ -1,0 +1,84 @@
+@use 'variables';
+
+@keyframes show {
+    from{
+        translate: 0% -10%;
+        opacity: 0;
+    }to{
+        opacity: 1;
+        translate: 0% 0%;
+    }
+}
+
+.overlay{
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    background-color: variables.$black;
+    opacity: 40%;
+    z-index: -1;
+}
+.cart-modal{
+    padding-inline:1.75rem;
+    padding-block:2rem;
+    border-radius:8px;
+    background-color: variables.$white;
+    position: absolute;
+    inset-inline-end:0;
+    inset-block-start:8.06rem;
+    color: variables.$black;
+    width:100%;
+    max-width:23.5rem;
+    animation: show 0.3s ease-in-out forwards;
+
+    .cart-head, .cart-total{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h6{
+            font-size: 1.125rem;
+            letter-spacing: 1.29px;
+        }
+
+        button{
+            opacity: 50%;
+            border:none;
+            background-color:transparent;
+            text-decoration: underline;
+
+            &:hover, &:active{
+                color: variables.$orange;
+                opacity:100%;
+            }
+        }
+    }
+
+    .cart-body{
+        margin-block:2rem;
+        display: grid;
+        gap:1.5rem;
+        max-height: 18rem;
+        overflow-y: auto;
+    }
+
+    .cart-total{
+        p{
+            opacity:50%;
+        }
+
+        h6{
+            letter-spacing: unset;
+            font-size: 1.125rem;
+        }
+
+    }
+
+    .cart-checkout-button{
+        margin-block-start:1.5rem;
+        width: 100%;
+    }
+
+}
