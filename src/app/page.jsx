@@ -31,7 +31,10 @@ export default function Home() {
       </header>
       
       <main>
-        <CategoriesSection/>
+
+        <section className="categories-section categories-section-home">
+          <CategoriesSection/>
+        </section>
 
         <section className="products-section">
           <article className="product-type-one">
@@ -96,8 +99,9 @@ export default function Home() {
             </div>
           </article>
         </section>
-
-        <AboutSection/>
+        <section className="about-section about-section-home">
+          <AboutSection/>
+        </section>
       </main>
     </>
   );

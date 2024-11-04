@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function AboutSection(){
     return(
-        <section className="about-section">
+        <>
           <div className="about-subgroup">
             <h2 className="about-title">Bringing you the <span>best</span> audio gear</h2>
             <p className="text about-text">Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. 
@@ -22,6 +22,6 @@ export default function AboutSection(){
             />
             <Image  className="about-picture" src="/images/shared/mobile/image-best-gear.jpg" alt="best gear image" width={327} height={3300}/>
           </picture>
-        </section>
+        </>
     )
 }

@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-export default function Product({tagNew}){
+export default function Product({tagNew, direction}){
     return(
-        <article className="product-container">
+        <article className={`product-container ${direction && direction}`}>
             <picture>
                 <source
                 media="(min-width: 1024px)"
@@ -16,7 +16,7 @@ export default function Product({tagNew}){
             </picture>
             <div className="product-content">
                 {tagNew && <p className="subtitle-text product-subtitle">NEW PRODUCT</p>}
-                <h2 class="product-title">XX99 Mark II Headphones</h2>
+                <h2 className="product-title">XX99 Mark II Headphones</h2>
                 <p className="text product-text">The new XX99 Mark II headphones is the pinnacle of pristine audio. 
                     It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound.
                 </p>

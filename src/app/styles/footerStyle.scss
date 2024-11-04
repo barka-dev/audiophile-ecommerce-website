@@ -3,7 +3,6 @@
 
 .footer{
     background-color: variables.$very_dark_grey; 
-    margin-block-start:3.75rem;
 }
 
 .footer-container{
@@ -68,9 +67,6 @@
 }
 
 @media screen and (min-width:768px) {
-    .footer{
-        margin-block-start:3rem;
-    }
     .footer-container{
         padding-block-start:3.75rem;
         padding-block-end:2.87rem;
@@ -102,9 +98,6 @@
 }
 
 @media screen and (min-width:1024px) {
-    .footer{
-        margin-block-start:5.25rem;
-    }
     .footer-container{
         padding-block-start:3.75rem;
         padding-block-end:2.87rem;

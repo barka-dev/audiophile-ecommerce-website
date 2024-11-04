@@ -1,5 +1,9 @@
 @use 'variables';
 
+.reverse-direction{
+    direction: rtl;
+}
+
 .product-container{
     display:grid;
     gap:2rem;
@@ -30,6 +34,86 @@
 
         .product-button{
             justify-self: center;
+        }
+    }
+}
+
+@media screen and (min-width:768px) {
+    .product-container{
+        // display:grid;
+        gap:3.25rem;
+    
+        // .product-picture{
+        //     width: 100%;
+        //     height: auto;
+        //     border-radius:8px;
+        // }
+    
+        .product-content{
+            // display:grid;
+            gap:1rem;
+            // text-align:center;
+            padding-inline:9.5%;
+    
+            // .product-subtitle{
+            //     // color: variables.$orange;
+            // }
+    
+            .product-title{
+                letter-spacing: 1.43px;
+                // color: variables.$black;
+            }
+    
+            .product-text{
+                // opacity:50%;
+                margin-block-start:1rem;
+            }
+    
+            .product-button{
+                // justify-self: center;
+                margin-block-start:0.5rem;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .product-container{
+        // display:grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap:7.8rem;
+    
+        // .product-picture{
+        //     width: 100%;
+        //     height: auto;
+        //     border-radius:8px;
+        // }
+    
+        .product-content{
+            // display:grid;
+            // gap:1rem;
+            text-align:left;
+            padding-inline:unset;
+    
+            // .product-subtitle{
+            //     // color: variables.$orange;
+            // }
+    
+            // .product-title{
+            //     // letter-spacing: 1.43px;
+            //     // color: variables.$black;
+            // }
+    
+            // .product-text{
+            //     // opacity:50%;
+            //     // margin-block-start:1rem;
+            // }
+    
+            .product-button{
+                justify-self: left;
+                margin-block-start:1.5rem;
+            }
         }
     }
 }
