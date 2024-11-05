@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Product({tagNew, direction}){
     return(
@@ -20,7 +21,9 @@ export default function Product({tagNew, direction}){
                 <p className="text product-text">The new XX99 Mark II headphones is the pinnacle of pristine audio. 
                     It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound.
                 </p>
-                <button className="button orange-button regular-button-size product-button">See Product</button>
+                <Link href="/headphones/productDetail">
+                    <button className="button orange-button regular-button-size product-button">See Product</button>
+                </Link>
             </div>
 
         </article>

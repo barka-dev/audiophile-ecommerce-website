@@ -8,11 +8,12 @@ export const metadata = {
   description: "audiophile ecommerce website",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, header}) {
   return (
     <html lang="en">
       <body>
         <Navigation/>
+        {/* {header} */}
         {children}
         <Footer/>
       </body>

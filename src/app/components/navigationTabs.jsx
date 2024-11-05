@@ -4,16 +4,16 @@ export default function NavigationTabs(){
     return(
         <ul className="navigation-tabs">
             <li>
-                <Link href="">HOME</Link>
+                <Link href="/">HOME</Link>
             </li>
             <li>
-                <Link href="">HEADPHONES</Link>
+                <Link href="/headphones">HEADPHONES</Link>
             </li>
             <li>
-                <Link href="">SPEAKERS</Link>
+                <Link href="/speakers">SPEAKERS</Link>
             </li>
             <li>
-                <Link href="">EARPHONES</Link>
+                <Link href="/earphones">EARPHONES</Link>
             </li>
         </ul>
     )

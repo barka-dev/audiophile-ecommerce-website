@@ -1,20 +1,13 @@
 import AboutSection from "../components/aboutSection";
 import CategoriesSection from "../components/categoriesSection";
-import Product from "../components/product";
+import Header from "./@header/page";
 
-export default function Headphones(){
+export default function CategoriesLayout({ children}){
     return(
         <>
-            <header>
-                <h2 className="cat-header-title">HEADPHONES</h2>
-            </header>
-
+            <Header/>
             <main>
-                <section className="headphones-products-section">
-                    <Product tagNew={true}/>
-                    <Product direction="reverse-direction"/>
-                    <Product/>
-                </section>
+                {children}
                 <section className="categories-section categories-section-headphones">
                     <CategoriesSection/>
                 </section>
@@ -22,7 +15,6 @@ export default function Headphones(){
                     <AboutSection/>
                 </section>
             </main>
-
         </>
     )
 }

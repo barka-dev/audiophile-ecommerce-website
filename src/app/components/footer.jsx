@@ -7,7 +7,7 @@ export default function Footer(){
         <footer className="footer">
             <div className="footer-container">
                 <div className="footer-subgroup-one">
-                    <Link href="">
+                    <Link href="/">
                         <Image className="footer-logo" src="/images/shared/desktop/logo.svg" alt="" width={143} height={25}/>
                     </Link>
                     <NavigationTabs/>
@@ -20,7 +20,6 @@ export default function Footer(){
                     <small className="footer-copyright">Copyright 2021. All Rights Reserved</small>
                     <div className="footer-nested-subgroup">
                         <Link href="">
-                            {/* <Image className="footer-facebook-icon" src="/images/shared/desktop/icon-facebook.svg" alt="facebook" width={24} height={24}/> */}
                             <svg 
                                 className="social-icon"
                                 width="24" 
@@ -30,7 +29,6 @@ export default function Footer(){
                             </svg>
                         </Link>
                         <Link href="">
-                            {/* <Image className="footer-twitter-icon" src="/images/shared/desktop/icon-twitter.svg" alt="twitter" width={24} height={20}/> */}
                             <svg 
                                 className="social-icon"
                                 width="24" 
@@ -40,7 +38,6 @@ export default function Footer(){
                             </svg>
                         </Link>
                         <Link href="">
-                            {/* <Image className="footer-instagram-icon" src="/images/shared/desktop/icon-instagram.svg" alt="instagram" width={24} height={24}/> */}
                             <svg 
                                 className="social-icon"
                                 width="24" 
