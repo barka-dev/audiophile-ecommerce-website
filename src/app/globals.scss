@@ -13,6 +13,7 @@
 @use "./styles/productStyle.scss";
 @use "./styles/productDetailStyle.scss";
 @use "./styles/quantitySelectorStyle.scss";
+@use "./styles/suggestedProductStyle.scss";
 
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
@@ -54,6 +55,15 @@ h1{
 h2{
     font-size:1.75rem;
     font-weight: variables.$bold;
+    text-transform: uppercase;
+}
+
+h3{
+    font-size: 1.5rem;
+    font-weight: variables.$bold;
+    line-height: 2.25rem;
+    letter-spacing: 0.86px;
+    color: variables.$black;
     text-transform: uppercase;
 }
 
