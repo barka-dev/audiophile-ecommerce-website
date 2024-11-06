@@ -1,0 +1,57 @@
+@use 'variables';
+
+.back-button{
+    text-decoration: none;
+    color:inherit;
+    opacity: 50%;
+    display:block;
+    margin-block-start:1rem;
+    margin-block-end:1.5rem;
+}
+
+.product-info{
+    display: grid;
+    gap:2rem;
+    margin-block-end:2.75rem;
+
+    .product-info-picture{
+        border-radius:8px;
+        width: 100%;
+        height: auto;
+    }
+
+    .product-info-subgroup{
+        display:grid;
+        gap:1.5rem;
+
+        .product-info-subtitle{
+            color: variables.$orange;
+        }
+
+        .product-info-title{
+            letter-spacing: 1px;
+            color: variables.$black;
+        }
+
+        .product-info-text{
+            opacity:50%;
+        }
+
+        .product-info-price{
+            font-weight: variables.$bold;
+            font-size: 1.125rem;
+            letter-spacing: 1.29px;
+            color: variables.$black;
+            margin-block-end:0.5rem;
+        }
+
+        .product-info-subgroup-level2{
+            display: flex;
+            gap:1rem;
+            .quantity-container{
+                width: 7.5rem;
+            }
+        }
+    }
+}
+

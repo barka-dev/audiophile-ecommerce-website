@@ -1,11 +1,10 @@
-import AboutSection from "../components/aboutSection";
-import CategoriesSection from "../components/categoriesSection";
-import Header from "./@header/page";
+import AboutSection from "@/app/components/aboutSection";
+import CategoriesSection from "@/app/components/categoriesSection";
 
-export default function CategoriesLayout({ children}){
+export default function CategoriesLayout({children, header}){
     return(
         <>
-            <Header/>
+            {header}
             <main>
                 {children}
                 <section className="categories-section categories-section-headphones">
