@@ -1,14 +1,29 @@
+'use client'
 import QuantitySelector from "@/app/components/quantitySelector";
 import SuggestedPoduct from "@/app/components/suggestedProduct";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from 'next/navigation';
+import React from 'react';
 
-export default function ProductDetail(){
+export default function ProductDetail({params}){
+    const router = useRouter();
+    const { category, productSlug } = React.use(params);
     return(
         <>
-            <Link className="back-button text" href="">Go Back</Link>
+            <Link className="back-button text" href="" onClick={()=>router.back()}>Go Back</Link>
             <section className="product-info">
-                <Image className="product-info-picture" src="/images/product-xx99-mark-two-headphones/mobile/image-product.jpg" alt="product-xx99-mark-two-headphones" width={327} height={327}/>
+                <picture>
+                    <source
+                        media="(min-width: 1024px)"
+                        srcSet={'/images/product-xx99-mark-two-headphones/desktop/image-product.jpg'}
+                    />
+                    <source
+                        media="(min-width: 768px)"
+                        srcSet={'/images/product-xx99-mark-two-headphones/tablet/image-product.jpg'}
+                    />
+                    <Image className="product-info-picture" src="/images/product-xx99-mark-two-headphones/mobile/image-product.jpg" alt="product-xx99-mark-two-headphones" width={327} height={327}/>
+                </picture>
                 <article className="product-info-subgroup">
                     <p className="subtitle-text product-info-subtitle">NEW PRODUCT</p>
                     <h2 className="product-info-title">XX99 Mark II Headphones</h2>
@@ -65,17 +80,47 @@ export default function ProductDetail(){
             </section>
 
             <section className="gallery-section">
-                <Image className="gallery gallery-1" src="/images/product-xx99-mark-two-headphones/mobile/image-gallery-1.jpg" alt="" width={327} height={174}/>
-                <Image className="gallery gallery-2" src="/images/product-xx99-mark-two-headphones/mobile/image-gallery-2.jpg" alt="" width={327} height={174}/>
-                <Image className="gallery gallery-3" src="/images/product-xx99-mark-two-headphones/mobile/image-gallery-3.jpg" alt="" width={327} height={368}/>
+                <picture className="gallery-1">
+                    <source
+                        media="(min-width: 1024px)"
+                        srcSet={'/images/product-xx99-mark-two-headphones/desktop/image-gallery-1.jpg'}
+                    />
+                    <source
+                        media="(min-width: 768px)"
+                        srcSet={'/images/product-xx99-mark-two-headphones/tablet/image-gallery-1.jpg'}
+                    />
+                    <Image className="gallery gallery-1" src="/images/product-xx99-mark-two-headphones/mobile/image-gallery-1.jpg" alt="image-gallery-1" width={445} height={280}/>
+                </picture>
+                <picture className="gallery-2">
+                    <source
+                        media="(min-width: 1024px)"
+                        srcSet={'/images/product-xx99-mark-two-headphones/desktop/image-gallery-2.jpg'}
+                    />
+                    <source
+                        media="(min-width: 768px)"
+                        srcSet={'/images/product-xx99-mark-two-headphones/tablet/image-gallery-2.jpg'}
+                    />
+                    <Image className="gallery gallery-2" src="/images/product-xx99-mark-two-headphones/mobile/image-gallery-2.jpg" alt="image-gallery-2" width={445} height={280}/>
+                </picture>
+                <picture className="gallery-3">
+                    <source
+                        media="(min-width: 1024px)"
+                        srcSet={'/images/product-xx99-mark-two-headphones/desktop/image-gallery-3.jpg'}
+                    />
+                    <source
+                        media="(min-width: 768px)"
+                        srcSet={'/images/product-xx99-mark-two-headphones/tablet/image-gallery-3.jpg'}
+                    />
+                    <Image className="gallery gallery-3" src="/images/product-xx99-mark-two-headphones/mobile/image-gallery-3.jpg" alt="image-gallery-3" width={635} height={592}/>
+                </picture>
             </section>
 
             <section className="suggestion-section">
                 <h3>you may also like</h3>
                 <div className="suggested-products-wrapper">
-                    <SuggestedPoduct/>
-                    <SuggestedPoduct/>
-                    <SuggestedPoduct/>
+                    <SuggestedPoduct path={`/${category}/${productSlug}`}/>
+                    <SuggestedPoduct path={`/${category}/${productSlug}`}/>
+                    <SuggestedPoduct path={`/${category}/${productSlug}`}/>
                 </div>
             </section>
         </>

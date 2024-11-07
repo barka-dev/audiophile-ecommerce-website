@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Product({tagNew, direction}){
+export default function Product({tagNew, direction, category}){
     return(
         <article className={`product-container ${direction && direction}`}>
             <picture>
@@ -21,7 +21,7 @@ export default function Product({tagNew, direction}){
                 <p className="text product-text">The new XX99 Mark II headphones is the pinnacle of pristine audio. 
                     It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound.
                 </p>
-                <Link href="/headphones/productDetail">
+                <Link href={`/${category}/productDetail`}>
                     <button className="button orange-button regular-button-size product-button">See Product</button>
                 </Link>
             </div>
