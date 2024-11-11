@@ -12,7 +12,7 @@ export default function Home() {
             <p className="subtitle-text header-subtitle">NEW PRODUCT</p>
             <h1 className="header-title">XX99 Mark II HeadphoneS</h1>
             <p className="text header-text">Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</p>
-            <Link href="">
+            <Link href="/headphones/xx99-mark-two-headphones">
               <button className="header-button button orange-button">See Product</button>
             </Link>
           </div>
@@ -53,7 +53,7 @@ export default function Home() {
             <div className="product-type-one-subgroup">
               <h1 className="product-type-one-title">ZX9 <br/> SPEAKER</h1>
               <p className="text product-type-one-description">Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
-              <Link href="">
+              <Link href="/speakers/zx9-speaker">
                 <button className="product-type-one-button button">See Product</button>
               </Link>
             </div>
@@ -73,7 +73,7 @@ export default function Home() {
             </picture>
             <div className="product-type-two-content">
               <h4>ZX7 SPEAKER</h4>
-              <Link href="">
+              <Link href="/speakers/zx7-speaker">
                 <button className="product-type-two-button button transparent-button">See Product</button>
               </Link>
             </div>
@@ -93,7 +93,7 @@ export default function Home() {
             </picture>
             <div className="product-type-three-subgroup">
               <h4>YX1 EARPHONES</h4>
-              <Link href="">
+              <Link href="/earphones/yx1-earphones">
                 <button className="product-type-three-button button transparent-button">See Product</button>
               </Link>
             </div>

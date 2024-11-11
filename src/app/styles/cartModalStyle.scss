@@ -32,6 +32,7 @@
     width:100%;
     max-width:23.5rem;
     animation: show 0.3s ease-in-out forwards;
+    z-index: 99999;
 
     .cart-head, .cart-total{
         display:flex;

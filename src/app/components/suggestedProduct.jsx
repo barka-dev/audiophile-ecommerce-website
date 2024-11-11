@@ -1,21 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function SuggestedPoduct({path}){
+export default function SuggestedPoduct({path, name, image}){
     return(
         <article className="suggested-product">
             <picture>
                 <source
                     media="(min-width: 1024px)"
-                    srcSet={'/images/shared/desktop/image-xx99-mark-one-headphones.jpg'}
+                    srcSet={image.desktop}
                 />
                 <source
                     media="(min-width: 768px)"
-                    srcSet={'/images/shared/tablet/image-xx99-mark-one-headphones.jpg'}
+                    srcSet={image.tablet}
                 />
-                <Image className="suggested-product-picture" src="/images/shared/mobile/image-xx99-mark-one-headphones.jpg" alt="other products" width={327} height={120}/>
+                <Image className="suggested-product-picture" src={image.mobile} alt="other products" width={327} height={120}/>
             </picture>
-            <h3 className="suggested-product-title">XX99 MARK I</h3>
+            <h3 className="suggested-product-title">{name}</h3>
             <Link href={path}>
                 <button className="button orange-button">see product</button>
             </Link>
