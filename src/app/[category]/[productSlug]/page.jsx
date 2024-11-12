@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import path from "path";
 import { promises as fs } from "fs"
+import AddToCardButton from "@/app/components/addToCardButton";
 
 export default async function ProductDetail({params}){
     const { category, productSlug } = await params;
@@ -36,7 +37,8 @@ export default async function ProductDetail({params}){
                         <div className="quantity-container">
                             <QuantitySelector/>
                         </div>
-                        <button className="button orange-button">ADD TO CART</button>
+                        <AddToCardButton productId={result[0].id}/>
+                        {/* <button className="button orange-button" onClick={()=>{addId(result[0].id)}}>ADD TO CART</button> */}
                     </div>
                 </article>
             </section>
