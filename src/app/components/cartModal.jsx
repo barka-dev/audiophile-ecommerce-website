@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import SelectedProduct from "./selectedProduct";
 import Error from "next/error";
+import Link from "next/link";
 
 export default function CartModal(){
     const [result, setResult] = useState([]);
@@ -39,8 +40,8 @@ export default function CartModal(){
 
     }, [data]);
 
-    if (loading) return <strong>Loading...</strong>;
-    if (error) return <strong>Error: {error}</strong>;
+    // if (loading) return <strong>Loading...</strong>;
+    // if (error) return <strong>Error: {error}</strong>;
     
 
 
@@ -68,7 +69,9 @@ export default function CartModal(){
                     <p className="text">TOTAL</p>
                     <h6>$ {totalPrice}</h6>
                 </div>
-                <button className="button orange-button cart-checkout-button">checkout</button>
+                {/* <Link href="/checkout"> */}
+                    <button className="button orange-button cart-checkout-button">checkout</button>
+                {/* </Link> */}
                </>     
             }
         </div>
