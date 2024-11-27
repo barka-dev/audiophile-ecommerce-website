@@ -14,8 +14,8 @@
     "react-dom": "19.0.0-rc-69d4b800-20241021"
   },
   "devDependencies": {
-    "eslint": "^8",
-    "eslint-config-next": "15.0.1",
-    "sass": "^1.80.4"
+    "eslint": "^9",
+    "eslint-config-next": "15.0.3",
+    "sass": "^1.81.0"
   }
 }
