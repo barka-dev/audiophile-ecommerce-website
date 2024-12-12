@@ -70,9 +70,9 @@ export default function CartModal(){
                         <p className="text">TOTAL</p>
                         <h6>$ {totalPrice}</h6>
                     </div>
-                    {/* <Link href="/checkout"> */}
+                    <Link href="/checkout">
                         <button className="button orange-button cart-checkout-button">checkout</button>
-                    {/* </Link> */}
+                    </Link>
                 </>     
                 }
             </div>

@@ -9,7 +9,7 @@ export default function SelectedProduct({data}){
                 <p className="selected-item-price">$ {data.price}</p>
             </div>
             <div className="quantity-container">
-               <QuantitySelector/>
+               {data.qte ? <p className="summary-qte-product">x{data.qte}</p>  : <QuantitySelector/>}
             </div>
         </div>
     )
