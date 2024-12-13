@@ -7,6 +7,9 @@
 
     .selected-item-picture{
         border-radius: 8px;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
     }
 
     .selected-item-subgroup{

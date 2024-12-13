@@ -38,7 +38,7 @@ export default function Checkout(){
     return(
         <>
             <div className="checkout-top-wrapper">
-                <Link className="back-button text" href={"/"}>Go Back</Link>
+                <Link className="checkout-back-btn back-button text" href={"/"}>Go Back</Link>
                 <article className="checkout-container">
                     <h2 className="checkout-title">CHECKOUT</h2>
                     <section className="billing-section">
