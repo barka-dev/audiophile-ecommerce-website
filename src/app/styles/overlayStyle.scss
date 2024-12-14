@@ -1,0 +1,12 @@
+@use 'variables';
+
+.overlay-class{
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    background-color: variables.$black;
+    opacity: 40%;
+    z-index: 9998;
+}

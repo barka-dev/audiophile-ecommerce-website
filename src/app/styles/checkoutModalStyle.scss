@@ -1,0 +1,17 @@
+@use 'variables';
+
+.checkoutmodal-container{
+    position: absolute;
+    top:15.25rem;
+    left:50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    width:88%;
+    max-width: 34rem;
+    background-color: variables.$white;
+    border-radius:8px;
+    padding:2rem;
+}
+
+
+
