@@ -11,7 +11,106 @@
     background-color: variables.$white;
     border-radius:8px;
     padding:2rem;
+    display: grid;
+    gap: 1.5rem 0rem;
 }
 
+.checkoutmodal-title{
+    line-height: 28px;
+}
 
+.checkoutmodal-subtitle{
+    opacity: 50%;
+    margin-block-start:1rem;
+}
 
+.checkoutmodal-items{
+    border-radius:8px 8px 0 0;
+    background-color: variables.$dark_grey;
+    padding:1.5rem;
+}
+
+.checkoutmodal-items-text-container{
+    border-top: 1px solid rgba(0,0,0, .08);
+    padding-block-start:12px;
+    margin-block-start:12px;
+    text-align:center;
+}
+
+.checkoutmodal-items-text{
+    font-size: 0.75rem;
+    font-weight: variables.$bold;
+    color: variables.$black;
+    opacity: 50%;
+    letter-spacing: -0.21px;
+}
+
+.checkoutmodal-total{
+    border-radius: 0 0 8px 8px;
+    background-color: variables.$black;
+    padding-inline: 1.5rem;
+    padding-block-start: 0.93rem; 
+    padding-block-end: 1.18rem; 
+    color: variables.$white;
+}
+
+.checkoutmodal-total-text{
+    opacity: 50%;
+}
+
+.checkoutmodal-total-price{
+    font-weight: variables.$bold;
+    font-size:1.125rem;
+    margin-block-start: 0.5rem;
+}
+
+.checkoutmodal-button{
+    width: 100% !important;
+}
+
+@media screen and (min-width: 768px) {
+    .checkoutmodal-container{
+        top:13.87rem;
+        padding:3rem;
+        gap: 2.02rem 0rem;
+    }
+    
+    .checkoutmodal-title{
+        line-height: 36px;
+    }
+    
+    .checkoutmodal-subtitle{
+        margin-block-start:1.5rem;
+    }
+
+    .checkoutmodal-group-items{
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .checkoutmodal-items{
+        border-radius:8px 0 0 8px;
+    }
+    
+    .checkoutmodal-total{
+        border-radius: 0 8px 8px 0 ;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .checkoutmodal-button{
+        margin-block-start: 0.81rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .checkoutmodal-container{
+        gap: 2.06rem 0rem;
+    }
+    
+    .checkoutmodal-total{
+        padding-inline: 2rem;
+    }
+    
+}

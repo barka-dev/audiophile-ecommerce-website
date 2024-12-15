@@ -35,7 +35,7 @@ function CheckoutModal() {
                 <article className='checkoutmodal-container'>
                     <Image className='checkoutmodal-icon' src="/images/checkout/icon-order-confirmation.svg" alt='' width={64} height={64}/>
                     <div className='checkoutmodal-group-title'>
-                        <h3 className='checkoutmodal-title'>THANK YOU FOR YOUR ORDER</h3>
+                        <h3 className='checkoutmodal-title'>THANK YOU<br/>FOR YOUR ORDER</h3>
                         <p className='text checkoutmodal-subtitle'>You will receive an email confirmation shortly.</p>
                     </div>
                     <div className='checkoutmodal-group-items'>
@@ -49,7 +49,7 @@ function CheckoutModal() {
                         </div>
                         <div className='checkoutmodal-total'>
                             <p className='text checkoutmodal-total-text'>GRAND TOTAL</p>
-                            <h6 className='checkoutmodal-total-price'>$ 5,446</h6>
+                            <p className='checkoutmodal-total-price'>$ 5,446</p>
                         </div>
                         
                     </div>

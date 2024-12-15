@@ -7,7 +7,7 @@ export default function CheckoutPage(){
         <main>
             <Checkout/>
         </main>
-        <CheckoutModal />
+        {/* <CheckoutModal /> */}
         </>
     )
 }

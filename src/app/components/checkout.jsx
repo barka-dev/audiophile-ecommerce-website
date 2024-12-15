@@ -4,6 +4,7 @@ import EMoneyInfo from "./eMoneyInfo";
 import SelectedProduct from "./selectedProduct";
 import {useEffect, useState} from 'react'
 import Link from "next/link";
+import CODmessage from "./CODmessage";
 
 export default function Checkout(){
     const [data, setData] = useState([]);
@@ -88,7 +89,8 @@ export default function Checkout(){
                                 <input className="payment-radios" type="radio" name="payment" id="cod"/>Cash on Delivery
                             </label>
                         </div>
-                        <EMoneyInfo/>
+                        {/* <EMoneyInfo/> */}
+                        <CODmessage/>
                     </section>
                 </article>
 
