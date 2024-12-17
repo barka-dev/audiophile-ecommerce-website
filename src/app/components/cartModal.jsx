@@ -1,49 +1,29 @@
 'use client'
+import { useProduct } from "../contexts";
 import { useState, useEffect } from "react";
 import SelectedProduct from "./selectedProduct";
-import Error from "next/error";
 import Link from "next/link";
 
 export default function CartModal(){
+    const {selectedProducts, setSelectedProducts, getProductsById} = useProduct();
     const [result, setResult] = useState([]);
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
     const [show, setShow] = useState(true);
-    // const [totalPrice, setTotalPrice] = useState(0);
     let totalPrice = 0;
+    
 
     const removeAll = () => {
-        localStorage.setItem('ids', JSON.stringify([]));
-    }
-
-    const fetchData = async()=>{
-        try{
-            const response = await fetch("/data/products.json");
-            if(!response.ok){
-                throw new Error('Network response was ok')
-            }
-            const result = await response.json();
-            setData(result);
-        } catch (err){
-            setError(err.message);
-        } finally {
-            setLoading(false);
-        }
+        setSelectedProducts([]);
     }
     
     useEffect(() => {
-        fetchData();
-    
-        const ids = JSON.parse(localStorage.getItem('ids')) || [];
-        const filteredData = data.filter((item) => ids.includes(item.id));
-        setResult(filteredData);
+        if (selectedProducts && selectedProducts.length > 0) {
+            const ids = selectedProducts.map((product) => product.productId);
+            getProductsById(ids).then((products) => setResult(products));
+        }else{
+            setResult([]);
+        }
 
-    }, [data]);
-
-    // if (loading) return <strong>Loading...</strong>;
-    // if (error) return <strong>Error: {error}</strong>;
-    
+    }, [selectedProducts, getProductsById]);
 
     if (show)
     return(
@@ -60,9 +40,9 @@ export default function CartModal(){
                     </div>
                     <div className="cart-body">
                         {
-                            result.map((item, index)=>{
-                                totalPrice += item.price;
-                                return <SelectedProduct key={index} data={item}/>
+                            result.map((product, index)=>{
+                                totalPrice += product.price;
+                                return <SelectedProduct key={index} product={product}/>
                             })
                         }
                     </div>

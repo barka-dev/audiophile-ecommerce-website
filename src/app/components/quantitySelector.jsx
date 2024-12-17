@@ -1,18 +1,30 @@
 'use client'
-import {useState } from "react";
-export default function QuantitySelector(){
-    const [quantity, setQuantity] = useState(1);
+import { useEffect, useState } from "react";
+import { useProduct } from "../contexts";
+
+export default function QuantitySelector({productId = null, numberSelected, setNumberSelected}){
+    const {updateQuantityOfProduct} = useProduct();
+    const [quantitySelected, setQuantitySelected] = useState(1);
+
+    useEffect(()=>{
+        if (numberSelected) setQuantitySelected(numberSelected);
+
+        if(productId) updateQuantityOfProduct(productId, numberSelected)
+
+    },[quantitySelected])
 
     const addQuantity = ()=>{
-        quantity < 10 && setQuantity(quantity + 1); 
+        quantitySelected < 10 && setQuantitySelected(quantitySelected + 1);
+        if (numberSelected) setNumberSelected(numberSelected + 1);
     }
     const reduceQuantity = ()=>{
-        quantity > 1 && setQuantity(quantity - 1);  
+        quantitySelected > 1 && setQuantitySelected(quantitySelected - 1);
+        if (numberSelected) setNumberSelected(numberSelected - 1);
     }
     return(
         <div className="quantity-wrapper">
             <button className="quantity-button decrease-quantity" onClick={reduceQuantity}>-</button>
-            <input className="selected-item-quantity" type="number" name="quantity" value={quantity} onChange={()=>{}}/>
+            <input className="selected-item-quantity" type="number" name="quantity" value={quantitySelected} onChange={()=>{}}/>
             <button className="quantity-button increase-quantity" onClick={addQuantity}>+</button>
         </div>
         
