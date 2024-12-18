@@ -6,9 +6,10 @@ import {useEffect, useRef, useState} from 'react'
 import Link from "next/link";
 import CODmessage from "./CODmessage";
 import { useProduct } from "../contexts";
+import CheckoutModal from "./checkoutModal";
 
 export default function Checkout(){
-    const {selectedProducts, getProductsById} = useProduct();
+    const {selectedProducts, getProductsById, setShowCheckoutModal, setShowCartModal,setShowNavModal, showCheckoutModal} = useProduct();
     const [result, setResult] = useState([]);
     // const radioRef = useRef(null);
     const [isChecked, setIsChecked] = useState(true);
@@ -16,6 +17,12 @@ export default function Checkout(){
 
     const handleCheck= ()=>{
         setIsChecked(!isChecked);
+    }
+
+    const continueAndPay = ()=>{
+        setShowCheckoutModal(true);
+        setShowCartModal(false);
+        setShowNavModal(false);
     }
 
     useEffect(() => {
@@ -92,8 +99,10 @@ export default function Checkout(){
                     {
                         result.map((item, index)=>{
                             const currProduct = selectedProducts.filter((product)=>product.productId === item.id )[0];
-                            totalPrice += (item.price*currProduct.quantity);
-                            return <SelectedProduct key={index} product={{...item, qte:currProduct.quantity}}/>
+                            if(currProduct){
+                                totalPrice += (item.price*currProduct?.quantity);
+                                return <SelectedProduct key={index} product={{...item, qte:currProduct?.quantity}}/>
+                            }
                         })
                     }
                     </div>
@@ -116,10 +125,12 @@ export default function Checkout(){
                             <h6 className="summary-price summary-price-grand">$ {totalPrice + 50 + 1079}</h6>
                         </div>
                     </div>
-                    <button className="button orange-button pay-button">CONTINUE & PAY</button>
+                    <button className="button orange-button pay-button" onClick={continueAndPay}>CONTINUE & PAY</button>
 
                 </article>
             </div>
+
+            {showCheckoutModal && <CheckoutModal />}
         </>
     )
 }

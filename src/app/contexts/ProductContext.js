@@ -4,7 +4,9 @@ import { createContext, useContext, useState, useEffect} from "react";
 export const ProductContext = createContext({
     selectedProducts: [],
     selectedProduct: [],
-
+    showCartModal: false,
+    showNavModal: false,
+    showCheckoutModal: false,
     getProductsByCategory: async(category) =>[],
     getProductBySlug: async(slug) =>[],
     getProductsById: async(productsId) =>[],
@@ -13,6 +15,9 @@ export const ProductContext = createContext({
 export const ProductProvider = ({children}) =>{
     const [selectedProducts, setSelectedProducts] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState([]);
+    const [showCartModal, setShowCartModal] = useState(false);
+    const [showNavModal, setShowNavModal] = useState(false);
+    const [showCheckoutModal, setShowCheckoutModal] = useState(false);
 
     const getProductsByCategory = async(category)=>{
         const response = await fetch("/data/products.json");
@@ -56,7 +61,7 @@ export const ProductProvider = ({children}) =>{
     },[selectedProducts])
 
     return (
-        <ProductContext.Provider value={{selectedProducts, setSelectedProducts, selectedProduct, setSelectedProduct, getProductsByCategory, getProductBySlug, getProductsById, updateQuantityOfProduct}}>
+        <ProductContext.Provider value={{showCheckoutModal, setShowCheckoutModal, showNavModal, setShowNavModal,showCartModal, setShowCartModal,selectedProducts, setSelectedProducts, selectedProduct, setSelectedProduct, getProductsByCategory, getProductBySlug, getProductsById, updateQuantityOfProduct}}>
             {children}
         </ProductContext.Provider>
     )

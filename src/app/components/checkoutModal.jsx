@@ -3,9 +3,12 @@ import React, { useEffect, useState } from 'react'
 import Overlay from './overlay'
 import Image from 'next/image'
 import SelectedProduct from './selectedProduct';
+import Link from 'next/link';
+import { useProduct } from '../contexts';
 
 function CheckoutModal() {
-     const [data, setData] = useState([]);
+    const {setShowCheckoutModal, setSelectedProducts} = useProduct();
+    const [data, setData] = useState([]);
     const [result, setResult] = useState([]);
     const fetchData = async()=>{
         try{
@@ -28,6 +31,11 @@ function CheckoutModal() {
         setResult(filteredData);
 
     }, [data]);
+
+    const goBackHome = ()=>{
+        setShowCheckoutModal(false);
+        setSelectedProducts([])
+    }
     
     return (
         <>
@@ -41,7 +49,7 @@ function CheckoutModal() {
                     <div className='checkoutmodal-group-items'>
                         <div className='checkoutmodal-items'>
                             {
-                                <SelectedProduct data={{...result[0], qte:1}}/>
+                                // <SelectedProduct data={{...result[0], qte:1}}/>
                             }
                             {
                                 result.length > 1 && <div className='checkoutmodal-items-text-container'><p className='checkoutmodal-items-text'>and {result.length-1} other item{result.length-1 > 1 && 's'}</p></div>
@@ -53,7 +61,9 @@ function CheckoutModal() {
                         </div>
                         
                     </div>
-                    <button className='button orange-button checkoutmodal-button'>BACK TO HOME</button>
+                    <Link href={'/'}>
+                        <button className='button orange-button checkoutmodal-button' onClick={goBackHome}>BACK TO HOME</button>
+                    </Link>
                 </article>
             </Overlay>
         </>

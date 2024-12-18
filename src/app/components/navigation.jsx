@@ -5,10 +5,12 @@ import NavigationTabs from "./navigationTabs";
 import NavigationModal from "./navigationModal";
 import { useEffect, useState } from "react";
 import CartModal from "./cartModal";
+import Overlay from "./overlay";
+import { useProduct } from "../contexts";
 
 export default function Navigation(){
-    const [showNavModal, setShowNavModal] = useState(false);
-    const [showCartModal, setShowCartModal] = useState(false);
+    // const [showNavModal, setShowNavModal] = useState(false);
+    const {showCartModal, setShowCartModal,showNavModal, setShowNavModal, setShowCheckoutModal} = useProduct();
     const [windowWidth, setWindowWidth] = useState('');
 
     useEffect(()=>{
@@ -23,6 +25,14 @@ export default function Navigation(){
 
     const showMobileNav = ()=>{
         setShowNavModal(!showNavModal);
+        setShowCartModal(false);
+        setShowCheckoutModal(false);
+    }
+
+    const showCart = ()=>{
+        setShowCartModal(!showCartModal);
+        setShowNavModal(false);
+        setShowCheckoutModal(false);
     }
 
     return(
@@ -41,7 +51,7 @@ export default function Navigation(){
                         <NavigationTabs/>
                     </div>
                     
-                    <button className="cart-button" onClick={()=>{setShowCartModal(!showCartModal)}}>
+                    <button className="cart-button" onClick={showCart}>
                         <Image src="/images/shared/desktop/icon-cart.svg" alt="cart icon" width={23} height={20}/>
                     </button>
 
@@ -49,7 +59,7 @@ export default function Navigation(){
                 </div>
 
             </nav>
-            {(showNavModal && windowWidth < 1024) && <NavigationModal/>}
+            {(showNavModal && windowWidth < 1024) && <Overlay><NavigationModal/></Overlay>}
             
         </>
     )

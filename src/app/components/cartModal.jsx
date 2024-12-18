@@ -5,7 +5,7 @@ import SelectedProduct from "./selectedProduct";
 import Link from "next/link";
 
 export default function CartModal(){
-    const {selectedProducts, setSelectedProducts, getProductsById} = useProduct();
+    const {selectedProducts, setSelectedProducts, getProductsById, setShowCartModal, setShowNavModal} = useProduct();
     const [result, setResult] = useState([]);
     const [show, setShow] = useState(true);
     const [numberSelected, setNumberSelected] = useState(1);
@@ -26,7 +26,7 @@ export default function CartModal(){
 
     }, [selectedProducts, getProductsById]);
 
-    if (show)
+    if (show)  
     return(
         <>
             <div className="overlay" onClick={()=>{setShow(false)}}></div>
@@ -53,7 +53,7 @@ export default function CartModal(){
                         <h6>$ {totalPrice}</h6>
                     </div>
                     <Link href="/checkout">
-                        <button className="button orange-button cart-checkout-button">checkout</button>
+                        <button className="button orange-button cart-checkout-button" onClick={()=>{setShowCartModal(false); setShowNavModal(false)}}>checkout</button>
                     </Link>
                 </>     
                 }
