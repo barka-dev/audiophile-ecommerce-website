@@ -2,39 +2,31 @@
 import Backbtn from "./backbtn";
 import EMoneyInfo from "./eMoneyInfo";
 import SelectedProduct from "./selectedProduct";
-import {useEffect, useState} from 'react'
+import {useEffect, useRef, useState} from 'react'
 import Link from "next/link";
 import CODmessage from "./CODmessage";
+import { useProduct } from "../contexts";
 
 export default function Checkout(){
-    const [data, setData] = useState([]);
+    const {selectedProducts, getProductsById} = useProduct();
     const [result, setResult] = useState([]);
-    const [loading, setLoading] = useState(true);
+    // const radioRef = useRef(null);
+    const [isChecked, setIsChecked] = useState(true);
     let totalPrice = 0;
 
-    const fetchData = async()=>{
-        try{
-            const response = await fetch("/data/products.json");
-            if(!response.ok){
-                throw new Error('Network response was ok')
-            }
-            const result = await response.json();
-            setData(result);
-        } catch (err){
-            setError(err.message);
-        } finally {
-            setLoading(false);
-        }
+    const handleCheck= ()=>{
+        setIsChecked(!isChecked);
     }
-    
-    useEffect(() => {
-        fetchData();
-    
-        const ids = JSON.parse(localStorage.getItem('ids')) || [];
-        const filteredData = data.filter((item) => ids.includes(item.id));
-        setResult(filteredData);
 
-    }, [data]);
+    useEffect(() => {
+        if (selectedProducts && selectedProducts.length > 0) {
+            const ids = selectedProducts.map((product) => product.productId);
+            getProductsById(ids).then((products) => setResult(products));
+        }else{
+            setResult([]);
+        }
+
+    }, [selectedProducts, getProductsById]);
 
     return(
         <>
@@ -83,14 +75,14 @@ export default function Checkout(){
                         <label className="checkout-label" htmlFor="payment">Payment Method</label>
                         <div className="radios-group">
                             <label htmlFor="emoney" className="label-for-radio">
-                                <input className="payment-radios" type="radio" name="payment" id="emoney"/>e-Money
+                                <input className="payment-radios" type="radio" name="payment" id="emoney" onChange={handleCheck} defaultChecked/>e-Money
                             </label>
                             <label htmlFor="cod" className="label-for-radio">
-                                <input className="payment-radios" type="radio" name="payment" id="cod"/>Cash on Delivery
+                                <input className="payment-radios" type="radio" name="payment" id="cod" onChange={handleCheck}/>Cash on Delivery
                             </label>
                         </div>
-                        {/* <EMoneyInfo/> */}
-                        <CODmessage/>
+                        {isChecked ? <EMoneyInfo/> : <CODmessage/>}
+                        
                     </section>
                 </article>
 
@@ -99,8 +91,9 @@ export default function Checkout(){
                     <div className="summary-products">
                     {
                         result.map((item, index)=>{
-                            totalPrice += item.price;
-                            return <SelectedProduct key={index} data={{...item, qte:1}}/>
+                            const currProduct = selectedProducts.filter((product)=>product.productId === item.id )[0];
+                            totalPrice += (item.price*currProduct.quantity);
+                            return <SelectedProduct key={index} product={{...item, qte:currProduct.quantity}}/>
                         })
                     }
                     </div>

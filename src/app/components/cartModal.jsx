@@ -8,6 +8,7 @@ export default function CartModal(){
     const {selectedProducts, setSelectedProducts, getProductsById} = useProduct();
     const [result, setResult] = useState([]);
     const [show, setShow] = useState(true);
+    const [numberSelected, setNumberSelected] = useState(1);
     let totalPrice = 0;
     
 
@@ -41,7 +42,8 @@ export default function CartModal(){
                     <div className="cart-body">
                         {
                             result.map((product, index)=>{
-                                totalPrice += product.price;
+                                const currProductQte = selectedProducts.filter((p)=>p.productId === product.id )[0].quantity;
+                                totalPrice += (product.price*currProductQte);
                                 return <SelectedProduct key={index} product={product}/>
                             })
                         }

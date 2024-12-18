@@ -3,6 +3,7 @@ import { createContext, useContext, useState, useEffect} from "react";
 
 export const ProductContext = createContext({
     selectedProducts: [],
+    selectedProduct: [],
 
     getProductsByCategory: async(category) =>[],
     getProductBySlug: async(slug) =>[],
@@ -11,6 +12,7 @@ export const ProductContext = createContext({
 
 export const ProductProvider = ({children}) =>{
     const [selectedProducts, setSelectedProducts] = useState([]);
+    const [selectedProduct, setSelectedProduct] = useState([]);
 
     const getProductsByCategory = async(category)=>{
         const response = await fetch("/data/products.json");
@@ -54,7 +56,7 @@ export const ProductProvider = ({children}) =>{
     },[selectedProducts])
 
     return (
-        <ProductContext.Provider value={{selectedProducts, setSelectedProducts, getProductsByCategory, getProductBySlug, getProductsById, updateQuantityOfProduct}}>
+        <ProductContext.Provider value={{selectedProducts, setSelectedProducts, selectedProduct, setSelectedProduct, getProductsByCategory, getProductBySlug, getProductsById, updateQuantityOfProduct}}>
             {children}
         </ProductContext.Provider>
     )

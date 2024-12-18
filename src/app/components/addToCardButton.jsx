@@ -2,7 +2,7 @@
 
 import { useProduct } from "../contexts";
 
-export default function AddToCardButton({productId, numberSelected}){
+export default function AddToCardButton({productId, numberSelected, setNumberSelected}){
     const {selectedProducts, setSelectedProducts} = useProduct();
     const productSelected = {
         productId: productId,

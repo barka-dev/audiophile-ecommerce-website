@@ -2,29 +2,41 @@
 import { useEffect, useState } from "react";
 import { useProduct } from "../contexts";
 
-export default function QuantitySelector({productId = null, numberSelected, setNumberSelected}){
-    const {updateQuantityOfProduct} = useProduct();
-    const [quantitySelected, setQuantitySelected] = useState(1);
+export default function QuantitySelector({productId, numberSelected, setNumberSelected}){
+    const {selectedProducts, setSelectedProducts} = useProduct();
+    const [quantity, setQuantity] = useState(1);
+    const product = selectedProducts.filter((product)=> product.productId === productId);
+    const prevproduct = selectedProducts.filter((product)=> product.productId !== productId);
 
     useEffect(()=>{
-        if (numberSelected) setQuantitySelected(numberSelected);
 
-        if(productId) updateQuantityOfProduct(productId, numberSelected)
+        if(product && product.length>0){
+            setQuantity(product[0].quantity);
+        }
+    },[])
 
-    },[quantitySelected])
+    useEffect(()=>{
+        if(numberSelected){
+            setNumberSelected(quantity);
+        }
+
+        if(product && product.length>0){
+            setSelectedProducts([...prevproduct, {productId:productId, quantity:quantity}])
+        }
+
+    },[quantity])
 
     const addQuantity = ()=>{
-        quantitySelected < 10 && setQuantitySelected(quantitySelected + 1);
-        if (numberSelected) setNumberSelected(numberSelected + 1);
+        setQuantity(quantity+1);
     }
+
     const reduceQuantity = ()=>{
-        quantitySelected > 1 && setQuantitySelected(quantitySelected - 1);
-        if (numberSelected) setNumberSelected(numberSelected - 1);
+        setQuantity(quantity-1);
     }
     return(
         <div className="quantity-wrapper">
             <button className="quantity-button decrease-quantity" onClick={reduceQuantity}>-</button>
-            <input className="selected-item-quantity" type="number" name="quantity" value={quantitySelected} onChange={()=>{}}/>
+            <input className="selected-item-quantity" type="number" name="quantity" value={quantity} onChange={()=>{}}/>
             <button className="quantity-button increase-quantity" onClick={addQuantity}>+</button>
         </div>
         

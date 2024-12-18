@@ -7,19 +7,21 @@ import QuantitySelector from './quantitySelector';
 import { useProduct } from '../contexts';
 
 function ProductDetails({category, slug}) {
-    const {getProductBySlug} = useProduct();
+    const {getProductBySlug, selectedProducts, selectedProduct} = useProduct();
     const [result, setResult] = useState(null);
     const [numberSelected, setNumberSelected] = useState(1);
 
+    
     useEffect(()=>{
         getProductBySlug(slug).then((product) => setResult(product));
     },[slug, getProductBySlug])
-
+    
     if(!result){
         return <div>Loading...</div>;
     }
-
+    
     const product = result[0];
+    const currentProduct = selectedProducts.filter((product)=> product.productId === product.id);
     return (
         <>
             <section className="product-info">
@@ -41,9 +43,9 @@ function ProductDetails({category, slug}) {
                     <p className="product-info-price">$ {product.price}</p>
                     <div className="product-info-subgroup-level2">
                         <div className="quantity-container">
-                            <QuantitySelector numberSelected={numberSelected} setNumberSelected={setNumberSelected}/>
+                            <QuantitySelector productId={product.id} numberSelected={numberSelected} setNumberSelected={setNumberSelected}/>
                         </div>
-                        <AddToCardButton productId={product.id} numberSelected={numberSelected}/>
+                        <AddToCardButton productId={product.id} numberSelected={numberSelected} setNumberSelected={setNumberSelected}/>
                     </div>
                 </article>
             </section>
